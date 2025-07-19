@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Import Export Goods</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+  <div class="container" role="banner">
+    <h1>InPor Expor Barang</h1>
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="#categories">kategori</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" role="presentation" aria-label="Welcome section">
+  <h2>Welcome to InPor Expor Barang</h2>
+  <p>Mitra tepercaya Anda dalam layanan impor dan ekspor global menghadirkan kualitas, keandalan, dan kecepatan dalam setiap pengiriman.</p>
+  <a href="#contact" class="btn-primary" role="button">Contact Us Today</a>
+</section>
+
+<main class="container" role="main">
+  <section id="categories" aria-labelledby="categories-title">
+    <h3 class="section-title" id="categories-title">Kategori Kami</h3>
+    <div class="categories">
+      <article class="category-card" tabindex="0">
+        <div class="category-icon" aria-hidden="true">🚢</div>
+        <h4 class="category-title">impor barang</h4>
+        <p class="category-desc">Barang impor berkualitas tinggi termasuk elektronik, mesin, tekstil, dan banyak lagi.</p>
+      </article>
+      <article class="category-card" tabindex="0">
+        <div class="category-icon" aria-hidden="true">✈️</div>
+        <h4 class="category-title">Expor barang </h4>
+        <p class="category-desc">Layanan ekspor untuk produk pertanian, kerajinan tangan, barang manufaktur, dan bahan baku.</p>
+                                          </article>
+      <article class="category-card" tabindex="0">
+        <div class="category-icon" aria-hidden="true">🏭</div>
+        <h4 class="category-title">Logistik & Pengiriman</h4>
+        <p class="category-desc">Solusi logistik komprehensif untuk memastikan pengiriman lancar secara global.</p>
+      </article>
+      
+      
+
+    </div>
+  </section>
+
+  
+
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <h3 id="contact-title">Get In Touch</h3>
+    <form id="contact-form" aria-describedby="form-response" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required aria-required="true" />
+      
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="contoh@email.com" required aria-required="true" />
+      
+      <label for="message">Message / Inquiry</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda di sini..." required aria-required="true"></textarea>
+      
+      <input type="submit" value="Kirim Pesan" />
+      <p id="form-response" role="alert" aria-live="assertive" style="margin-top: 15px;"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 InPor Expor Barang.
+</footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
+    const responseEl = document.getElementById('form-response');
+    responseEl.style.color = "red";
+
+    if (!name) {
+      responseEl.textContent = "Please enter your full name.";
+      this.name.focus();
+      return;
+    }
+    if (!email) {
+      responseEl.textContent = "Please enter your email address.";
+      this.email.focus();
+      return;
+    }
+    if (!validateEmail(email)) {
+      responseEl.textContent = "Please enter a valid email address.";
+      this.email.focus();
+      return;
+    }
+    if (!message) {
+      responseEl.textContent = "Please enter your message or inquiry.";
+      this.message.focus();
+      return;
+    }
+
+    // Simulate form submission success
+    responseEl.style.color = "lightgreen";
+    responseEl.textContent = "Thank you for your message! We will get back to you soon.";
+
+    // Reset form after success
+    this.reset();
+  });
+
+  function validateEmail(email) {
+    // Simple email validation regex
+    const re = /^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$/;
+    return re.test(email.toLowerCase());
+  }
+</script>
+
+</body>
+</html>
+
